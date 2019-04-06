@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
 import {BrowserRouter} from 'react-router-dom';
+import Navbar from './components/layout/Navbar';
 
 class App extends Component {
   constructor() {
@@ -22,6 +23,7 @@ class App extends Component {
     return(
       <BrowserRouter>
         <div className="App">
+          <Navbar />
           <h1>{this.state.speed}</h1>
         </div>
       </BrowserRouter>
