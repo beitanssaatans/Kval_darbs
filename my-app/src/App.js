@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import * as firebase from 'firebase';
+import {BrowserRouter} from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -21,9 +20,11 @@ class App extends Component {
   }
   render() {
     return(
-      <div className="App">
-        <h1>{this.state.speed}</h1>
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <h1>{this.state.speed}</h1>
+        </div>
+      </BrowserRouter>
     );
   }
 }
