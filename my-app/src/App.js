@@ -24,6 +24,7 @@ class App extends Component {
       });
     });
   }
+  // <h1>{this.state.speed}</h1>
   render() {
     return(
       <BrowserRouter>
@@ -35,8 +36,7 @@ class App extends Component {
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
             <Route path='/create' component={CreatePost} />
-          </Switch>
-          <h1>{this.state.speed}</h1>
+          </Switch> 
         </div>
       </BrowserRouter>
     );
