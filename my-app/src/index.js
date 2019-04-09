@@ -2,23 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import * as firebase from 'firebase';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer);
-
-
-var config = {
-  apiKey: "AIzaSyBp31R-n1p758DOxhJwP0rGMurKUYx2QQA",
-  authDomain: "tedx-f78cd.firebaseapp.com",
-  databaseURL: "https://tedx-f78cd.firebaseio.com",
-  projectId: "tedx-f78cd",
-  storageBucket: "tedx-f78cd.appspot.com",
-  messagingSenderId: "514921603417"
-};
-  firebase.initializeApp(config);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
   ReactDOM.render(
       <Provider store={store}><App /></Provider>,
