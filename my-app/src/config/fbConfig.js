@@ -1,4 +1,4 @@
-import * as firebase from 'firebase/app';
+import  firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
 
@@ -10,7 +10,8 @@ var config = {
     storageBucket: "tedx-f78cd.appspot.com",
     messagingSenderId: "514921603417"
   };
-    firebase.initializeApp(config);
-    firebase.firestore().settings({timestampsInSnapshots: true})
+
+firebase.initializeApp(config);
+firebase.firestore().settings({timestampsInSnapshots: true});
 
 export default firebase;
