@@ -11,10 +11,10 @@ import { reactReduxFirebase, getFirebase, reduxFirebase } from 'react-redux-fire
 import FBconfig from './config/fbConfig';
 
 // react-redux-firebase config
-const rrfConfig = {
-  userProfile: 'users',
+//const rrfConfig = {
+//  userProfile: 'users',
   // useFirestoreForProfile: true // Firestore for Profile instead of Realtime DB
-}
+//}
 
 const store = createStore(rootReducer,
   compose(
