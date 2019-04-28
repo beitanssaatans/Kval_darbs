@@ -7,8 +7,8 @@ const PostLists =({posts}) => {
         <div className="project-list section">
             { posts && posts.map(post => {
                 return (
-                    <Link to = {'/post/'+post.id}>
-                    <PostsSummary post={post} key={post.id} />
+                    <Link to = {'/post/'+post.id} key={post.id}>
+                    <PostsSummary post={post}  />
                     </Link>
                 )
             })}

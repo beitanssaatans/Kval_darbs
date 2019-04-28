@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { firestoreCompose, firestoreConnect } from 'react-redux-firebase'
+import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux';
 
 const PostDetails = (props) => {
@@ -33,7 +33,7 @@ const mapStateToProps = (state, ownProps) => {
   // console.log(state);
   const id = ownProps.match.params.id;
   const posts = state.firestore.data.posts;
-  const post = posts ? posts [id] : null
+  const post = posts ? posts[id] : null;
   return{
     post: post
   }
