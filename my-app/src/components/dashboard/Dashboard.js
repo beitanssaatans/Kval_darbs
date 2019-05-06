@@ -35,7 +35,7 @@ const mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'posts' },
-        { collection: 'recentPosts', limit: 5}
+        { collection: 'posts', orderBy: ['createdAt', 'desc'] },
+        { collection: 'recentPosts', limit: 5, orderBy: ['time', 'desc']}
     ])
 )(Dashboard)
