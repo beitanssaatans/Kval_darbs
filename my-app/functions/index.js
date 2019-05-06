@@ -25,3 +25,27 @@ exports.postCreated = functions.firestore
     return createRecentPost(recentPost);
 
 })
+
+const createNotification = (notification => {
+    return admin.firestore().collection('notifications')
+    .add(notification)
+    .then(doc => console.log('new user created', doc));
+})
+
+
+exports.userCreated = functions.auth.user()
+    .onCreate(user => {
+        
+        return admin.firestore().collection('users')
+            .doc(user.uid).get().then(doc => {
+                const newUser = doc.data();
+                const notification = {
+                    content: 'New user created succesfully',
+                    user: `${newUser.firstName} ${newUser.lastName}`,
+                    time: admin.firestore.FieldValue.serverTimestamp()
+                }
+            return createNotification(notification);
+            })
+
+    }
+)
