@@ -8,7 +8,7 @@ import { compose } from 'redux';
 class Dashboard extends Component {
     render(){
       //  console.log(this.props);
-      const { posts } = this.props;
+      const { posts, recentPosts } = this.props;
         return (
             <div className= "Dashboard container">
                 <div className="row">
@@ -16,7 +16,7 @@ class Dashboard extends Component {
                         <PostLists posts={posts} />
                     </div>
                     <div className="col s12 m5 offset-m1">
-                         <RecentPosts />
+                         <RecentPosts recentPosts={recentPosts}/>
                     </div>
                 </div>
             </div>
@@ -28,12 +28,14 @@ const mapStateToProps = (state) => {
     console.log(state)
     return {
         posts: state.firestore.ordered.posts,
+        recentPosts: state.firestore.ordered.recentPosts
     }
 }
 
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'posts' }
+        { collection: 'posts' },
+        { collection: 'recentPosts', limit: 5}
     ])
 )(Dashboard)

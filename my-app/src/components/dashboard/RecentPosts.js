@@ -1,16 +1,24 @@
 import React from 'react';
+import moment from 'moment';
 
 const RecentPosts = (props) => {
+    const {recentPosts} = props;
     return (
         <div className="section">
             <div className="card z-depth-0">
                 <div className="card-content">
                     <span className="card-title">Recent Posts</span>
                     <ul className="post-title">
-                        <li>Recent post</li>
-                        <li>Recent post</li>
-                        <li>Recent post</li>
-                        <li>Recent post</li>
+                        { recentPosts && recentPosts.map(item => {
+                            return(
+                            <li key={item.id}>
+                                <span className="pink-text">{item.title}</span>
+                                <div className="grey-text note-date">
+                                {moment(item.time.toDate()).calendar()}
+                                </div>
+                            </li>
+                            )
+                        })}
                     </ul>
                 </div>
             </div>
