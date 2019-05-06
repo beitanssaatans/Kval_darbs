@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Notifications from './Notifications';
+import RecentPosts from './RecentPosts';
 import PostLists from '../Posts/PostLists';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
@@ -16,7 +16,7 @@ class Dashboard extends Component {
                         <PostLists posts={posts} />
                     </div>
                     <div className="col s12 m5 offset-m1">
-                         <Notifications />
+                         <RecentPosts />
                     </div>
                 </div>
             </div>
