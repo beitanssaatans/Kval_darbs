@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux';
-import moment from 'moment'
+import moment from 'moment';
 
 const PostDetails = (props) => {
   const { post } = props;
@@ -28,8 +28,8 @@ const PostDetails = (props) => {
         </div>
       )
   }
- 
 }
+
 const mapStateToProps = (state, ownProps) => {
   // console.log(state);
   const id = ownProps.match.params.id;
@@ -39,6 +39,7 @@ const mapStateToProps = (state, ownProps) => {
     post: post
   }
 }
+
 
 export default compose(
   connect(mapStateToProps),
