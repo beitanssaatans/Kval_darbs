@@ -4,6 +4,7 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux';
 import moment from 'moment';
 import YouTube from 'react-youtube';
+import { FacebookShareButton, LinkedinShareButton, TwitterIcon } from 'react-share';
 
 const PostDetails = (props) => {
   const { post } = props;
