@@ -6,7 +6,8 @@ import { Redirect } from 'react-router-dom'
 class CreatePost extends Component {
     state ={
         title: '',
-        content: ''
+        content: '',
+        video: ''
     }
     handleChange = (e) => {
         this.setState({
@@ -33,6 +34,10 @@ class CreatePost extends Component {
             <div className="input-field">
                 <label htmlFor="content">Post content</label>
                 <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
+            </div>
+            <div className="input-field">
+                <label htmlFor="video">Insert video ID from YouTube</label>
+                <textarea id="video" className="materialize-textarea" onChange={this.handleChange}></textarea>
             </div>
             <div className="input-field">
                 <button className="btn pink lighten-1 z-depth=0">Create</button>

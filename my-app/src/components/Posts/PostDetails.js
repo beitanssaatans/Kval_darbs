@@ -3,9 +3,17 @@ import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux';
 import moment from 'moment';
+import YouTube from 'react-youtube';
 
 const PostDetails = (props) => {
   const { post } = props;
+  const opts = {
+    height: '390',
+    width: '640',
+    playerVars: {
+      autoplay: 0
+    }};
+
   if (post) {
     return (
       <div className="container section project-details">
@@ -13,6 +21,10 @@ const PostDetails = (props) => {
           <div className="card-content">
               <span className="card-title">{ post.title }</span>
               <p>{ post.content }</p>
+              <YouTube
+                  videoId={ post.video }
+                  opts={opts}
+              />
           </div>
           <div className="card-action gret lighten-4 grey-text">
               <div>Posted by { post.authorFirstName} {post.authorLastName}</div>
@@ -29,6 +41,9 @@ const PostDetails = (props) => {
       )
   }
 }
+
+
+
 
 const mapStateToProps = (state, ownProps) => {
   // console.log(state);
