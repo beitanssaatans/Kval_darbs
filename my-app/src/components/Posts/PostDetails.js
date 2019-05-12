@@ -22,6 +22,7 @@ const PostDetails = (props) => {
           <div className="card-content">
               <span className="card-title">{ post.title }</span>
               <p>{ post.content }</p>
+              <br></br>
               <YouTube
                   videoId={ post.video }
                   opts={opts}
