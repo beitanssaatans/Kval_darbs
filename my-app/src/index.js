@@ -9,7 +9,6 @@ import thunk from 'redux-thunk';
 import { getFirestore, reduxFirestore } from 'redux-firestore';
 import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
 import FBconfig from './config/fbConfig';
-
 // react-redux-firebase config
 //const rrfConfig = {
 //  userProfile: 'users',

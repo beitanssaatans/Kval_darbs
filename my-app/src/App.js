@@ -7,6 +7,7 @@ import SignIn from './components/auth/SignIn';
 import CreateUser from './components/auth/CreateUser';
 import CreatePost from './components/Posts/CreatePost';
 import Conference from './components/conference/Conference2019';
+import ImageUpload from './components/imageUpload/ImageUpload'
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route path='/newuser' component={CreateUser} />
             <Route path='/create' component={CreatePost} />
             <Route path='/tedxriga2019' component={Conference} />
+            <Route path='/imgupload' component={ImageUpload} />
           </Switch> 
         </div>
       </BrowserRouter>
