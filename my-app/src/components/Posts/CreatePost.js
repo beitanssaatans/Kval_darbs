@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { createPost } from '../../store/actions/postActions';
-import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom';
+import ImageUpload from '../../components/imageUpload/ImageUpload'
+
 
 class CreatePost extends Component {
     state ={
         title: '',
         content: '',
-        video: ''
+        video: '',
+        image: ''
     }
     handleChange = (e) => {
         this.setState({
@@ -21,7 +24,7 @@ class CreatePost extends Component {
         this.props.history.push('/');
     }
   render() {
-    const { posts, auth } = this.props;
+    const { posts, auth, input } = this.props;
     if(!auth.uid) return <Redirect to='/signin' />
     return (
       <div className="container">
@@ -42,11 +45,17 @@ class CreatePost extends Component {
             <div className="input-field">
                 <button className="btn pink lighten-1 z-depth=0">Create</button>
             </div>
+            <div className="input-field">
+                <label htmlFor="image">Insert an image URL</label>
+                <input type="text" id="image" onChange={this.handleChange}/>
+            </div>
         </form>
+        <ImageUpload/>
       </div>
     )
   }
 }
+
 
 const mapStateToProps = (state) => {
     return{

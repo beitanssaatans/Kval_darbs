@@ -4,29 +4,40 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux';
 import moment from 'moment';
 import YouTube from 'react-youtube';
+
 import { FacebookShareButton, LinkedinShareButton, TwitterIcon } from 'react-share';
 
 const PostDetails = (props) => {
   const { post } = props;
   const opts = {
-    height: '390',
-    width: '640',
+    position: "absolute",
+    height: '400',
+    width: '100%',
     playerVars: {
       autoplay: 0
     }};
+
+  
 
   if (post) {
     return (
       <div className="container section project-details">
       <div className="card z-depth-0">
           <div className="card-content">
+            <div className="image">
+            <img src={ post.image }></img>
+            </div>
+            
               <span className="card-title">{ post.title }</span>
               <p>{ post.content }</p>
               <br></br>
-              <YouTube
+            <div className="Youtube">
+            <YouTube
                   videoId={ post.video }
                   opts={opts}
-              />
+            />
+            </div>
+            
           </div>
           <div className="card-action gret lighten-4 grey-text">
               <div>Posted by { post.authorFirstName} {post.authorLastName}</div>
@@ -43,8 +54,6 @@ const PostDetails = (props) => {
       )
   }
 }
-
-
 
 
 const mapStateToProps = (state, ownProps) => {

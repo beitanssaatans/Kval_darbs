@@ -46,20 +46,22 @@ class ImageUpload extends Component {
     return (
       <div className="container">
         <div className="white">
-            <h5 className="black-text text-darken-1">Upload Image</h5>
+            <lable className="col-sm-3">Upload Image</lable>
+            <div>
             <progress value={this.state.progress} max="100"/>
-            <br/>
+            </div>
             <br/>
             <div className="input-field">
-                <input className="btn" type="file" onChange={this.handleChange}/>
+                <input  type="file" onChange={this.handleChange}/>
+            </div>
+                <br/>
+              <div>
+              <img src={this.state.url } 
+               alt="Uploaded images" height="300" width="400" />
+              <p>{this.state.url}</p>
+              <br/>
                 <button className="btn pink lighten-1 z-depth=0" onClick={this.handleUpload}>Upload</button>
-            <br/>
-            <br/>
-              <div className="center">
-              <img src={this.state.url || 'http://via.placeholder.com/400x300'} 
-              alt="Uploaded images" height="300" width="400"/>
-              </div>
-            
+
             </div>
         </div>
       </div>
