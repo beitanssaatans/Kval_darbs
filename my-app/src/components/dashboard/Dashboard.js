@@ -19,8 +19,7 @@ class Dashboard extends Component {
                     </div>
                     <div className="col s12 m5 offset-m1">
                          <RecentPosts recentPosts={recentPosts}/>
-                    </div>
-                    <div className="col s12 m5 offset-m1">
+                   
                     <TwitterTimelineEmbed
                         sourceType="profile"
                         screenName="TEDxRiga"
