@@ -11,8 +11,10 @@ const Navbar = (props) => {
     return (
         <nav className="nav-wrapper grey darken-3">
             <div className="container">
-                <Link to='/' className="brand-logo">TEDxRIGA</Link>
-               { links }
+                <div className="left" style={{ paddingTop: '5px' }}>
+                    <Link to='/' className="brand-logo"><img class="ui small image" src="https://i0.wp.com/tedxriga.com/wp-content/uploads/2018/05/tedxriga-logo.png?fit=300%2C99"></img></Link>
+               </div>
+                { links }
             </div>
         </nav>
 

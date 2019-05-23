@@ -33,18 +33,19 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       as='h1'
-      content='Imagine-a-Company'
+      content='TEDxRIGA 2019'
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
         fontWeight: 'normal',
         marginBottom: 0,
         marginTop: mobile ? '1.5em' : '3em',
+        
       }}
     />
     <Header
       as='h2'
-      content='Do whatever you want when you want to.'
+      content='Bring the light'
       inverted
       style={{
         fontSize: mobile ? '1.5em' : '1.7em',
@@ -52,10 +53,14 @@ const HomepageHeading = ({ mobile }) => (
         marginTop: mobile ? '0.5em' : '1.5em',
       }}
     />
-    <Button primary size='huge'>
-      Get Started
-      <Icon name='right arrow' />
-    </Button>
+    
+      <a href='https://www.eventbrite.com/e/tedxriga-2019-tickets-59227049700'>
+        <Button primary size='huge' color='#e62b1e' >
+          GET YOUR TICKET
+        <Icon name='right arrow' />
+       </Button>
+      </a>
+      
   </Container>
 )
 
@@ -101,17 +106,9 @@ class DesktopContainer extends Component {
                 <Menu.Item as='a' active>
                   Home
                 </Menu.Item>
-                <Menu.Item as='a'>Work</Menu.Item>
-                <Menu.Item as='a'>Company</Menu.Item>
-                <Menu.Item as='a'>Careers</Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted={!fixed}>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
+                <Menu.Item as='a' >Speakers</Menu.Item>
+                <Menu.Item as='a'>Partners</Menu.Item>
+                <Menu.Item as='a'>Contact</Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading />
@@ -156,11 +153,9 @@ class MobileContainer extends Component {
           <Menu.Item as='a' active>
             Home
           </Menu.Item>
-          <Menu.Item as='a'>Work</Menu.Item>
-          <Menu.Item as='a'>Company</Menu.Item>
-          <Menu.Item as='a'>Careers</Menu.Item>
-          <Menu.Item as='a'>Log in</Menu.Item>
-          <Menu.Item as='a'>Sign Up</Menu.Item>
+          <Menu.Item as='a' >Speakers</Menu.Item>
+           <Menu.Item as='a'>Partners</Menu.Item>
+          <Menu.Item as='a'>Contact</Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -170,21 +165,6 @@ class MobileContainer extends Component {
             style={{ minHeight: 350, padding: '1em 0em' }}
             vertical
           >
-            <Container>
-              <Menu inverted pointing secondary size='large'>
-                <Menu.Item onClick={this.handleToggle}>
-                  <Icon name='sidebar' />
-                </Menu.Item>
-                <Menu.Item position='right'>
-                  <Button as='a' inverted>
-                    Log in
-                  </Button>
-                  <Button as='a' inverted style={{ marginLeft: '0.5em' }}>
-                    Sign Up
-                  </Button>
-                </Menu.Item>
-              </Menu>
-            </Container>
             <HomepageHeading mobile />
           </Segment>
 
@@ -212,78 +192,88 @@ ResponsiveContainer.propTypes = {
 
 const Conference2019 = () => (
   <ResponsiveContainer>
-    <Segment style={{ padding: '8em 0em' }} vertical>
+    <Segment style={{ padding: '8em 0em' }} vertical >
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              We Help Companies and Companions
+            <Header as='h3' style={{ fontSize: '2em', color: 'white' }}>
+              Save the date!
             </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              We can give your company superpowers to do things that they never thought possible.
-              Let us delight your customers and empower your needs... through pure data analytics.
+            <p style={{ fontSize: '1.33em', color: 'white' }} >
+              Our 8th flagship event TEDxRiga 2019 will take place in exactly 8 months’ 
+              time – November 22 at the National Library of Latvia. Through unique 
+              TED-like 18 minute talks or less, a variety of 20+ speakers and performers 
+              from different fields and backgrounds will share their Ideas Worth Spreading. 
+              They are inspiring, thought-provoking and exciting. They will challenge your horizons, 
+              make you laugh and even shed a tear.
             </p>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              We Make Bananas That Can Dance
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, you thought it was the stuff of dreams, but even bananas can be
-              bioengineered.
+            <br/>
+            <p style={{ fontSize: '1.33em', color: 'white' }}>
+            Tickets are on sale now! Make sure you grab yours while you can and get ready 
+            for an unmissable experience!
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src='/images/wireframe/white-image.png' />
+            <Image bordered rounded size='large' src='https://i0.wp.com/tedxriga.com/wp-content/uploads/2019/03/Banner.jpg?fit=1280%2C720g' />
           </Grid.Column>
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
-            <Button size='huge'>Check Them Out</Button>
+          <a href='https://www.eventbrite.com/e/tedxriga-2019-tickets-59227049700'>
+            <Button size='huge'>Buy ticket</Button>
+          </a>
           </Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>
-    <Segment style={{ padding: '0em' }} vertical>
+
+    <Segment style={{ padding: '8em' }} vertical>
       <Grid celled='internally' columns='equal' stackable>
+            <Header as='h2' style={{ fontSize: '2em', color: 'white' }}>
+              Speakers
+            </Header>
         <Grid.Row textAlign='center'>
           <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              "What a Company"
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>That is what they all say about us</p>
+          <img class="ui centered medium image" src='http://2018.tedxriga.com/wp-content/uploads/sites/5/2018/10/Arturs_Miksons-370x520.jpg' />
+          <p style={{ fontSize: '1.33em', color: 'white'}}>
+        
+              <b>Artūrs Miksons</b> Psychotherapist
+            </p>
           </Grid.Column>
           <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              "I shouldn't have gone with their competitor."
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-              <Image avatar src='/images/avatar/large/nan.jpg' />
-              <b>Nan</b> Chief Fun Officer Acme Toys
+          <img class="ui centered medium image" src='http://2018.tedxriga.com/wp-content/uploads/sites/5/2018/10/Evija_Vebere-1-370x520.jpg' />
+            <p style={{ fontSize: '1.33em', color: 'white'}}>
+              
+              <b>Evija Vēbere</b> Singer and songwriter 
+            </p>
+          </Grid.Column>
+          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
+          <img class="ui centered medium image" src='http://2018.tedxriga.com/wp-content/uploads/sites/5/2018/10/dins-vecans-370x520.jpg' />
+            <p style={{ fontSize: '1.33em', color: 'white'}}>
+              
+              <b>Dins Vecans</b> Architect, runner
             </p>
           </Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>
+
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Container text>
-        <Header as='h3' style={{ fontSize: '2em' }}>
-          Breaking The Grid, Grabs Your Attention
+        <Header as='h3' style={{ fontSize: '2em', color:'white' }}>
+          Partners
         </Header>
-        <p style={{ fontSize: '1.33em' }}>
-          Instead of focusing on content creation and hard work, we have learned how to master the
-          art of doing nothing by providing massive amounts of whitespace and generic content that
-          can seem massive, monolithic and worth your attention.
-        </p>
-        <Button as='a' size='large'>
-          Read More
-        </Button>
-        <Divider
-          as='h4'
-          className='header'
-          horizontal
-          style={{ margin: '3em 0em', textTransform: 'uppercase' }}
-        >
-          <a href='#'>Case Studies</a>
-        </Divider>
+        <Grid celled='internally' columns='equal' stackable>
+        <Grid.Row textAlign='center'>
+         <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>  
+        <img class="ui centered medium image" src='https://i7.ifrype.com/business/344/737/v1369217451/ll_13344737.jpg' />
+        </Grid.Column>
+          <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
+        <img class="ui centered medium image" src='http://www.logosvectorfree.com/wp-content/uploads/2017/12/Bentley-Logo-Bentley-Symbol.jpg' />
+        </Grid.Column>
+        </Grid.Row>
+        </Grid>
+        
         <Header as='h3' style={{ fontSize: '2em' }}>
           Did We Tell You About Our Bananas?
         </Header>
@@ -297,6 +287,7 @@ const Conference2019 = () => (
         </Button>
       </Container>
     </Segment>
+
     <Segment inverted vertical style={{ padding: '5em 0em' }}>
       <Container>
         <Grid divided inverted stackable>
