@@ -17,3 +17,29 @@ export const createPost = (post) => {
     }
 };
 
+export const editPost = (postId, post) => {
+  return (dispatch, getState, { getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
+
+    firestore.update({ collection: 'posts', doc: postId }, { ...post, createdAt: new Date()})
+        .then((data)=>{
+            console.log('ok', data)
+        }).catch((err) => {
+            console.log(err);
+    });
+  }
+};
+
+
+export const deletePost = (postId) => {
+  return (dispatch, getState, { getFirebase, getFirestore}) => {
+    const firestore = getFirestore();
+    console.log('post ID',postId)
+      firestore.delete({ collection: 'posts', doc: postId })
+          .then((res)=>{
+          console.log('izdzēsts', res);
+      }).catch((err)=>{
+          console.log(err)
+      });
+  }
+};

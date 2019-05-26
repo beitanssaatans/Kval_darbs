@@ -6,6 +6,7 @@ import moment from 'moment';
 import YouTube from 'react-youtube';
 
 import { FacebookShareButton, LinkedinShareButton, TwitterIcon } from 'react-share';
+import {deletePost} from "../../store/actions/postActions";
 
 const PostDetails = (props) => {
   const { post } = props;
@@ -16,12 +17,17 @@ const PostDetails = (props) => {
     playerVars: {
       autoplay: 0
     }};
-
   
 
   if (post) {
+      console.log('pposst:', post);
     return (
       <div className="container section project-details">
+          <a href={`/edit/${post.id}`}>Rediģēt!</a>
+          {/*<a onClick={()=>props.deletePost(post.id)}>Dzēst</a>*/}
+          <button  onClick={(e) => { if (window.confirm('Are you sure you wish to delete this item?')) props.deletePost(post.id); props.history.push('/'); } }>
+              Delete
+          </button>
       <div className="card z-depth-0">
           <div className="card-content">
             <div className="image">
@@ -32,10 +38,14 @@ const PostDetails = (props) => {
               <p>{ post.content }</p>
               <br></br>
             <div className="Youtube">
-            <YouTube
-                  videoId={ post.video }
-                  opts={opts}
-            />
+          {
+              post.video && (
+                <YouTube
+                      videoId={ post.video }
+                      opts={opts}
+                />
+              )
+          }
             </div>
             
           </div>
@@ -43,6 +53,7 @@ const PostDetails = (props) => {
               <div>Posted by { post.authorFirstName} {post.authorLastName}</div>
               <p>{moment(post.createdAt.toDate()).calendar()}</p>
               </div>
+          <FacebookShareButton />
           </div>
       </div>
     )
@@ -57,18 +68,28 @@ const PostDetails = (props) => {
 
 
 const mapStateToProps = (state, ownProps) => {
-  // console.log(state);
-  const id = ownProps.match.params.id;
+    console.log('all', state);
+    const id = ownProps.match.params.id;
   const posts = state.firestore.data.posts;
   const post = posts ? posts[id] : null;
+  if (post) {
   return{
-    post: post
+    post:{
+        id: id,
+        ...post,
+    }
+  }
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        deletePost: (postId) => dispatch(deletePost(postId))
+    }
+}
 
 export default compose(
-  connect(mapStateToProps),
+  connect(mapStateToProps, mapDispatchToProps),
   firestoreConnect([
     { collection : 'posts' }
   ])
