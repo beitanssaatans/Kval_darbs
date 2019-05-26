@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { editPost } from '../../store/actions/postActions';
 import { Redirect } from 'react-router-dom';
 import ImageUpload from '../../components/imageUpload/ImageUpload'
-import './style.css';
 import {compose} from "redux";
 import {firestoreConnect} from "react-redux-firebase";
 

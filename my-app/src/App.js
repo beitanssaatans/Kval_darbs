@@ -7,7 +7,8 @@ import SignIn from './components/auth/SignIn';
 import CreateUser from './components/auth/CreateUser';
 import CreatePost from './components/Posts/CreatePost';
 import Conference from './components/conference/Conference2019';
-import ImageUpload from './components/imageUpload/ImageUpload'
+import ImageUpload from './components/imageUpload/ImageUpload';
+import EditPost from './components/Posts/EditPost';
 
 class App extends Component {
   render() {
@@ -23,6 +24,7 @@ class App extends Component {
             <Route path='/create' component={CreatePost} />
             <Route path='/tedxriga2019' component={Conference} />
             <Route path='/imgupload' component={ImageUpload} />
+            <Route path='/edit/:id' component={EditPost} />
           </Switch> 
         </div>
       </BrowserRouter>
