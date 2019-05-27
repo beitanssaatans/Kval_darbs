@@ -23,10 +23,9 @@ export const editPost = (postId, post) => {
 
     firestore.update({ collection: 'posts', doc: postId }, { ...post, createdAt: new Date()})
         .then((data)=>{
-            console.log('ok', data)
+            
         }).catch((err) => {
-            console.log(err);
-    });
+                });
   }
 };
 

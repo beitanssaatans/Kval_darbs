@@ -9,7 +9,7 @@ import { FacebookShareButton, LinkedinShareButton, TwitterIcon } from 'react-sha
 import {deletePost} from "../../store/actions/postActions";
 
 const PostDetails = (props) => {
-  const { post } = props;
+  const { post, auth } = props;
   const opts = {
     position: "absolute",
     height: '400',
@@ -19,15 +19,15 @@ const PostDetails = (props) => {
     }};
   
 
-  if (post) {
-      console.log('pposst:', post);
+  if (post && auth.uid) {
+      
     return (
       <div className="container section project-details">
-          <a href={`/edit/${post.id}`}>Rediģēt!</a>
-          {/*<a onClick={()=>props.deletePost(post.id)}>Dzēst</a>*/}
-          <button  onClick={(e) => { if (window.confirm('Are you sure you wish to delete this item?')) props.deletePost(post.id); props.history.push('/'); } }>
-              Delete
-          </button>
+          <a href={`/edit/${post.id}`}><button className="btn red lighten-1 z-depth=0">Rediģēt!</button></a>
+          
+          <button className="btn red lighten-1 z-depth=0" onClick={(e) => 
+            { if (window.confirm('Are you sure you wish to delete this item?')) props.deletePost(post.id);
+             props.history.push('/'); } }> Delete </button>
       <div className="card z-depth-0">
           <div className="card-content">
             <div className="image">
@@ -57,7 +57,42 @@ const PostDetails = (props) => {
           </div>
       </div>
     )
-  } else {
+  } if(post && !auth.uid)
+  {
+    return(
+      <div className="container section project-details">
+      <div className="card z-depth-0">
+      <div className="card-content">
+        <div className="image">
+        <img src={ post.image }></img>
+        </div>
+        
+          <span className="card-title">{ post.title }</span>
+          <p>{ post.content }</p>
+          <br></br>
+        <div className="Youtube">
+      {
+          post.video && (
+            <YouTube
+                  videoId={ post.video }
+                  opts={opts}
+            />
+          )
+      }
+        </div>
+        
+      </div>
+      <div className="card-action gret lighten-4 grey-text">
+          <div>Posted by { post.authorFirstName} {post.authorLastName}</div>
+          <p>{moment(post.createdAt.toDate()).calendar()}</p>
+          </div>
+      <FacebookShareButton />
+      </div>
+  </div>
+    )
+  }
+  
+  else {
     return (
         <div className="container center">
           <p>Loading the post...</p>
@@ -70,10 +105,12 @@ const PostDetails = (props) => {
 const mapStateToProps = (state, ownProps) => {
     console.log('all', state);
     const id = ownProps.match.params.id;
+  
   const posts = state.firestore.data.posts;
   const post = posts ? posts[id] : null;
   if (post) {
   return{
+    auth: state.firebase.auth,
     post:{
         id: id,
         ...post,
