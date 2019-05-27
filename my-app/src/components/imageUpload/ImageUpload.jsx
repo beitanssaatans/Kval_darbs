@@ -23,7 +23,7 @@ class ImageUpload extends Component {
       const uploadTask = storage.ref(`images/${image.name}`).put(image);
       uploadTask.on('state_changed', 
       (snapshot) => {
-        // progrss function ....
+        // progresa funkcija
         const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
         this.setState({progress});
       }, 
@@ -31,9 +31,9 @@ class ImageUpload extends Component {
         
       }, 
     () => {
-        // complete function ....
+        // atsauce uz attēlu noliktavu lai iegūtu attēla url
         storage.ref('images').child(image.name).getDownloadURL().then(url => {
-            console.log(url);
+            //console.log(url);
             this.setState({url});
         })
     });
@@ -41,7 +41,7 @@ class ImageUpload extends Component {
   render() {
     
     return (
-      <div className="container" style={{width: '100%'}}>
+      <div className="container" style={{width: '100%', maxWidth: '600px'}}>
         <div className="white">
             <h2 className="col-sm-3">Upload Image</h2>
             <div>
