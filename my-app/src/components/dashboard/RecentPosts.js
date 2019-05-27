@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
+// servera puses funkcija atgriež pēdējos publicētos rakstus
 const RecentPosts = (props) => {
     const {recentPosts} = props;
     return (

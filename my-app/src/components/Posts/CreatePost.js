@@ -24,7 +24,7 @@ class CreatePost extends Component {
         this.props.history.push('/');
     }
   render() {
-    const { posts, auth, input } = this.props;
+    const {  auth } = this.props;
     if(!auth.uid) return <Redirect to='/signin' />
     return (
       <div className="container">
@@ -32,11 +32,11 @@ class CreatePost extends Component {
             <h5 className="black-text text-darken-1">Create Post</h5>
             <div className="input-field">
                 <label htmlFor="title">Title</label>
-                <input type="text" id="title" onChange={this.handleChange}/>
+                <input type="text" id="title"  required onChange={this.handleChange}/>
             </div>
             <div className="input-field">
                 <label htmlFor="content">Post content</label>
-                <textarea id="content" className="materialize-textarea" onChange={this.handleChange}></textarea>
+                <textarea id="content" className="materialize-textarea" required onChange={this.handleChange}></textarea>
             </div>
             <div className="input-field">
                 <label htmlFor="video">Insert video ID from YouTube</label>

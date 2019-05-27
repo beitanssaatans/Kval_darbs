@@ -1,34 +1,20 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import {
-  Button,
-  Container,
-  Divider,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  List,
-  Menu,
-  Responsive,
-  Segment,
-  Sidebar,
-  Visibility,
-} from 'semantic-ui-react'
+  Button,  Container,
+  Grid, Header, Icon,
+  Image, List, Menu,
+  Responsive, Segment,
+  Sidebar, Visibility } from 'semantic-ui-react'
 
-// Heads up!
-// We using React Static to prerender our docs with server side rendering, this is a quite simple solution.
-// For more advanced usage please check Responsive docs under the "Usage" section.
+
 const getWidth = () => {
   const isSSR = typeof window === 'undefined'
 
   return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
 }
 
-/* eslint-disable react/no-multi-comp */
-/* Heads up! HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled components for
- * such things.
- */
+
 const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
@@ -52,6 +38,7 @@ const HomepageHeading = ({ mobile }) => (
         fontWeight: 'normal',
         marginTop: mobile ? '0.5em' : '1.5em',
       }}
+      id="top"
     />
     
       <a href='https://www.eventbrite.com/e/tedxriga-2019-tickets-59227049700'>
@@ -68,10 +55,7 @@ HomepageHeading.propTypes = {
   mobile: PropTypes.bool,
 }
 
-/* Heads up!
- * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
- * It can be more complicated, but you can create really flexible markup.
- */
+
 class DesktopContainer extends Component {
   state = {}
 
@@ -103,18 +87,15 @@ class DesktopContainer extends Component {
               size='large'
             >
               <Container>
-                <Menu.Item as='a' active>
-                  Home
-                </Menu.Item>
-                <Menu.Item as='a' >Speakers</Menu.Item>
-                <Menu.Item as='a'>Partners</Menu.Item>
-                <Menu.Item as='a'>Contact</Menu.Item>
+              <a href="#top" ><Menu.Item as='a' active>Home</Menu.Item></a>
+              <a href="#speakers" ><Menu.Item as='a' >Speakers</Menu.Item></a>
+              <a href="#partners" ><Menu.Item as='a'>Partners</Menu.Item></a>
+              <a href="#contacts" ><Menu.Item as='a'>Contact</Menu.Item></a>
               </Container>
             </Menu>
             <HomepageHeading />
           </Segment>
         </Visibility>
-
         {children}
       </Responsive>
     )
@@ -227,7 +208,7 @@ const Conference2019 = () => (
       </Grid>
     </Segment>
 
-    <Segment style={{ padding: '8em' }} vertical>
+    <Segment style={{ padding: '8em' }} vertical id="speakers">
       <Grid celled='internally' columns='equal' stackable>
             <Header as='h2' style={{ fontSize: '2em', color: 'white' }}>
               Speakers
@@ -258,7 +239,7 @@ const Conference2019 = () => (
       </Grid>
     </Segment>
 
-    <Segment style={{ padding: '8em 0em' }} vertical>
+    <Segment style={{ padding: '8em 0em' }} vertical id="partners">
       <Container text>
         <Header as='h3' style={{ fontSize: '2em', color:'white' }}>
           Partners
@@ -288,7 +269,7 @@ const Conference2019 = () => (
       </Container>
     </Segment>
 
-    <Segment inverted vertical style={{ padding: '5em 0em' }}>
+    <Segment inverted vertical style={{ padding: '5em 0em' }} id="contacts">
       <Container>
         <Grid divided inverted stackable>
           <Grid.Row>

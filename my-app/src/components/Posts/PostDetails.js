@@ -5,7 +5,7 @@ import { compose } from 'redux';
 import moment from 'moment';
 import YouTube from 'react-youtube';
 
-import { FacebookShareButton, LinkedinShareButton, TwitterIcon } from 'react-share';
+import { FacebookShareButton } from 'react-share';
 import {deletePost} from "../../store/actions/postActions";
 
 const PostDetails = (props) => {
@@ -103,7 +103,6 @@ const PostDetails = (props) => {
 
 
 const mapStateToProps = (state, ownProps) => {
-    console.log('all', state);
     const id = ownProps.match.params.id;
   
   const posts = state.firestore.data.posts;

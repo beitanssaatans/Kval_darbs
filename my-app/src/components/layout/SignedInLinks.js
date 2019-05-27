@@ -6,7 +6,8 @@ import { signOut } from '../../store/actions/authActions';
 const SignedInLinks = (props) => {
     return (
         <ul className="right">
-            <li><NavLink to='/'>Speeches</NavLink></li>
+            <li><NavLink to='/'>Talks</NavLink></li>
+            <li><NavLink to='/tedxriga2019'>TEDxRIGA 2019</NavLink></li>
             <li><NavLink to='/create'>Create new post</NavLink></li>
             <li><NavLink to='/newuser'>Create User</NavLink></li>
             <li><NavLink to='/imgupload'>Upload Media</NavLink></li>

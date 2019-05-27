@@ -1,8 +1,12 @@
+
+// Raksta izveide
 export const createPost = (post) => {
     return (dispatch, getState, { getFirebase, getFirestore}) => {
+      //Tiek izveidoti savienojimi ar datubāzi, lai izmantotu tur jau esošos datus
       const firestore = getFirestore();
       const profile = getState().firebase.profile;
       const authorID = getState().firebase.auth.uid;
+      //Norāda kur tiks glabāta
       firestore.collection('posts').add({
         ...post,
         authorFirstName: profile.firstName,

@@ -9,7 +9,7 @@ import { TwitterTimelineEmbed } from 'react-twitter-embed';
 
 class Dashboard extends Component {
     render(){
-      //  console.log(this.props);
+
       const { posts, recentPosts } = this.props;
         return (
             <div className= "Dashboard container">
@@ -33,7 +33,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state)
     return {
         posts: state.firestore.ordered.posts,
         recentPosts: state.firestore.ordered.recentPosts

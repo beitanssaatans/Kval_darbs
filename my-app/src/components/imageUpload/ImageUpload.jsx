@@ -28,8 +28,7 @@ class ImageUpload extends Component {
         this.setState({progress});
       }, 
       (error) => {
-           // error function ....
-        console.log(error);
+        
       }, 
     () => {
         // complete function ....
@@ -64,9 +63,6 @@ class ImageUpload extends Component {
         </div>
       </div>
     )
-
-   
   }
 }
-
 export default ImageUpload;
