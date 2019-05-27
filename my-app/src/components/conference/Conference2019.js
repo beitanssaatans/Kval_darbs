@@ -255,17 +255,21 @@ const Conference2019 = () => (
         </Grid.Row>
         </Grid>
         
-        <Header as='h3' style={{ fontSize: '2em' }}>
-          Did We Tell You About Our Bananas?
+        <Header as='h3' style={{ fontSize: '2em', color:'white' }}>
+        We would love to hear from you!
         </Header>
-        <p style={{ fontSize: '1.33em' }}>
-          Yes I know you probably disregarded the earlier boasts as non-sequitur filler content, but
-          it's really true. It took years of gene splicing and combinatory DNA research, but our
-          bananas can really dance.
+        <p style={{ fontSize: '1.33em',  color:'white' }}>
+        Please let us know your opinion, suggestion or any comment you might have!
         </p>
+        <br/>
+        <p style={{ fontSize: '1.33em',  color:'white' }}>
+        Follow TED on at <a href="twitter.com/TEDTalks">Twitter</a>, or on  <a href="facebook.com/TED">Facebook</a>
+        </p> 
+        <a href="/">
         <Button as='a' size='large'>
-          I'm Still Quite Interested
+          Lisent TED Talks
         </Button>
+        </a>
       </Container>
     </Segment>
 
